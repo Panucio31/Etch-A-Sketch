@@ -12,6 +12,8 @@ const defaultMode = 'color';
 
 // mode select
 
+//add grid
+
 
 const newGrid = () => {
     const input =  document.querySelector('.slider').value;
@@ -19,33 +21,36 @@ const newGrid = () => {
     gridContainer.style.gridTemplateColumns = `repeat(${input}, 1fr)`;
     gridContainer.style.gridTemplateRows = `repeat(${input}, 1fr)`;
 
+    
+
     for (let i = 0; i < input * input; i++) {
         const gridField = document.createElement('div');
         gridField.classList.add('active-field');
         gridField.addEventListener('mousedown', () => {
-            changeColor;
+            changeColor();
         })
         gridField.addEventListener('mouseover', () => {
-            changeColor
+            changeColor();
         })
-        gridContainer.appendChild(gridField)
+        gridContainer.appendChild(gridField);
+        console.log(input)
+        console.log(i)
     }
 
-   
-
 }
+
 
 newGrid()
 
 
 const changeColor = (e) => {
-    if (e.type === 'mousedown' && 'mouseover') {
-        e.target.style.backgroundColor = initialColor;
+    // if (e.type === 'mousedown' && 'mouseover') {
+    //     e.target.style.backgroundColor = initialColor;
 
-    }
+    // }
 
-    if (e.type === 'mousedown' && !'mouseover') {
-        return;
-    }
+    // if (e.type === 'mousedown' && !'mouseover') {
+    //     return;
+    // }
 
 }
