@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-A-Sketch</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header class="header-container">
-        <div class="logo">
-            <img src="./pictures/Logo.png" alt="Etch-A-Sketch logo">
-        </div>
+      <div class="logo">
+        <img src="./pictures/Logo.png" alt="Etch-A-Sketch logo" />
+      </div>
     </header>
 
     <section>
-        <div class="button-container">
-            <input type="color" class="choose">
-            <!-- <button class="btn" id="choose">Choose color</button> -->
-            <button class="btn" id="erase">Shake</button>
-            <div>
-                Choose grid size:
-            </div>
-            <div class="input">
-                Current size:
-            </div>
-            <input type="range" step="4" min = "8" max="64" class="slider" value="4" oninput="newGrid()">
+      <div class="button-container">
+        <input type="color" class="choose" />
+        <!-- <button class="btn" id="choose">Choose color</button> -->
+        <button class="btn" id="erase">Shake</button>
+        <button class="btn" id="random">Random</button>
+        <div class="info-container">
+          Choose grid size:
+          <div class="input">Current size:</div>
+          <input
+            type="range"
+            step="4"
+            min="8"
+            max="64"
+            class="slider"
+            value="4"
+            oninput="newGrid()"
+          />
         </div>
-        <div class="grid-container">
-
-        </div>
+      </div>
+      <div class="grid-container"></div>
     </section>
-    <footer>
-        
-    </footer>
+    <footer></footer>
 
     <script defer src="script.js"></script>
-</body>
+  </body>
 </html>
