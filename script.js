@@ -1,15 +1,12 @@
 const gridContainer = document.querySelector(".grid-container");
-const button = document.querySelectorAll(".btn");
-const chooseColor = document.querySelector("#choose");
 const eraseField = document.querySelector("#erase");
-const startingColor = document.querySelector("#color");
 const colorPicker = document.querySelector(".choose");
 
 // need default values for start
 const fieldCount = 16;
 const initialGridColor = "white";
 const initialDrawingColor = "#808080";
-const defaultMode = "color";
+
 
 // get rgb random
 
