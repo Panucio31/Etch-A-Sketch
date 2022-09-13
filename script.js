@@ -2,30 +2,34 @@ const gridContainer = document.querySelector(".grid-container");
 const eraseField = document.querySelector("#erase");
 const colorPicker = document.querySelector(".choose");
 
-// need default values for start
 const fieldCount = 16;
 const initialGridColor = "white";
 const initialDrawingColor = "#808080";
 
 
-// get rgb random
-
-const randomColor = () => {
-  const rgb = Math.floor(Math.random()*16777215).toString(16);
+const getRandomColor = () => {
+  const rgb = Math.floor(Math.random() * 16777215).toString(16);
   return rgb;
+};
+
+const sliderVal = document.querySelector('#grid-size');
+const gridSizer = () => {
+  sliderVal.addEventListener('change', () => {
+    let gridSizer = sliderVal.value;
+    return gridSizer;
+  });
+  
 }
 
-//add grid
-
-const newGrid = () => {
-  const input = document.querySelector(".slider").value;
-  document.querySelector(".input").innerHTML = `Current size: ${input}`;
-  gridContainer.style.gridTemplateColumns = `repeat(${input}, 1fr)`;
-  gridContainer.style.gridTemplateRows = `repeat(${input}, 1fr)`;
+const newGrid = (gridSize = fieldCount) => {
+  
+  document.querySelector(".input").innerHTML = `Current size: ${gridSize}`;
+  gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+  gridContainer.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
 
   gridContainer.innerHTML = "";
 
-  for (let i = 0; i < input * input; i++) {
+  for (let i = 0; i < gridSize * gridSize; i++) {
     const gridField = document.createElement("div");
     gridField.classList.add("active-field");
     gridField.addEventListener("mouseover", () => {
@@ -34,10 +38,8 @@ const newGrid = () => {
 
     gridContainer.appendChild(gridField);
   }
-
 };
 
-// delete grid container content
 
 eraseField.addEventListener("click", () => {
   const input = document.querySelector(".slider").value;
@@ -48,20 +50,20 @@ eraseField.addEventListener("click", () => {
   }
 });
 
-// implement random rgb 
-const rgbBtn = document.querySelector('#random');
-rgbBtn.addEventListener('click', () => {
+
+const rgbBtn = document.querySelector("#random");
+rgbBtn.addEventListener("click", () => {
   const input = document.querySelector(".slider").value;
   const gridField = gridContainer.children;
 
   for (let i = 0; i < input * input; i++) {
     gridField[i].addEventListener("mouseover", (e) => {
-      e.target.style.backgroundColor = `#${randomColor()}`;
+      e.target.style.backgroundColor = `#${getRandomColor()}`;
     });
   }
-})
+});
 
-// change color
+
 colorPicker.addEventListener("input", () => {
   const input = document.querySelector(".slider").value;
   const newColor = document.querySelector(".choose").value;
