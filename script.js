@@ -2,27 +2,22 @@ const gridContainer = document.querySelector(".grid-container");
 const eraseField = document.querySelector("#erase");
 const colorPicker = document.querySelector(".choose");
 
-const fieldCount = 16;
+const fieldCount = 8;
 const initialGridColor = "white";
 const initialDrawingColor = "#808080";
-
 
 const getRandomColor = () => {
   const rgb = Math.floor(Math.random() * 16777215).toString(16);
   return rgb;
 };
 
-const sliderVal = document.querySelector('#grid-size');
-const gridSizer = () => {
-  sliderVal.addEventListener('change', () => {
-    let gridSizer = sliderVal.value;
-    return gridSizer;
-  });
-  
-}
+const sliderVal = document.querySelector("#grid-size");
+sliderVal.addEventListener("change", () => {
+  let gridSizer = sliderVal.value;
+  newGrid(gridSizer);
+});
 
 const newGrid = (gridSize = fieldCount) => {
-  
   document.querySelector(".input").innerHTML = `Current size: ${gridSize}`;
   gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
   gridContainer.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
@@ -35,21 +30,14 @@ const newGrid = (gridSize = fieldCount) => {
     gridField.addEventListener("mouseover", () => {
       gridField.style.backgroundColor = initialDrawingColor;
     });
-
     gridContainer.appendChild(gridField);
   }
 };
 
-
 eraseField.addEventListener("click", () => {
-  const input = document.querySelector(".slider").value;
-  const gridField = gridContainer.children;
-
-  for (let i = 0; i < input * input; i++) {
-    gridField[i].style.backgroundColor = initialGridColor;
-  }
+  let gridSizer = sliderVal.value;
+  newGrid(gridSizer);
 });
-
 
 const rgbBtn = document.querySelector("#random");
 rgbBtn.addEventListener("click", () => {
@@ -62,7 +50,6 @@ rgbBtn.addEventListener("click", () => {
     });
   }
 });
-
 
 colorPicker.addEventListener("input", () => {
   const input = document.querySelector(".slider").value;

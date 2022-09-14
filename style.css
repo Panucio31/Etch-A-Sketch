@@ -14,12 +14,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background-color: salmon;
 }
 section {
   width: 100%;
   height: 600px;
-  background-color: red;
+  background-color: salmon;
   display: grid;
   justify-content: center;
   align-items: center;
