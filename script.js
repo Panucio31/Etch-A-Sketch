@@ -1,3 +1,4 @@
+// Time to script!
 const gridContainer = document.querySelector(".grid-container");
 const eraseField = document.querySelector("#erase");
 const colorPicker = document.querySelector(".choose");
